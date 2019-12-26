@@ -31,6 +31,8 @@ func main() {
 	fmt.Println(ce.String())
 
 	// String을 명시적으로 호출할 필요가 없음
+	// 리플렉트?
+	// String() 함수를 가지고 있는 것을 보고 형변환을 추천했을 것으로 추측
 	// 왜일까...?
 	fmt.Printf("%v\n", ce)
 	fmt.Printf("%s\n", ce)

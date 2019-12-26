@@ -11,4 +11,5 @@ func main() {
 	fmt.Printf("boiling point = %g°F or %g°C\n", f, c)
 	// 출력:
 	// boiling point = 212°F or 100°C
+	// 패키지 수준의 개체의 이름은 패키지 내의 모든 파일에서 참조 가능
 }

@@ -10,6 +10,9 @@ import (
 	"time"
 )
 
+// _ "net/http/pprof"
+// 사용되지 않으면 import에서 지워지는 것을 방지하며 init 함수를 실행함
+
 func main() {
 	start := time.Now()
 	ch := make(chan string)
@@ -29,6 +32,9 @@ func fetch(url string, ch chan<- string) {
 		ch <- fmt.Sprint(err) // ch 채널로 송신
 		return
 	}
+
+	// iotuil.ReadAll() - 한번에 모두 읽고 가지고 있기 때문에 메모리를 모두 차지한다.
+	// io.Copy() - 일정 크기의 버퍼를 두고 읽고 쓰기를 반복하기 때문에 메모리를 적게 차지
 
 	nbytes, err := io.Copy(ioutil.Discard, resp.Body)
 	resp.Body.Close() // 리소스 누출 방지

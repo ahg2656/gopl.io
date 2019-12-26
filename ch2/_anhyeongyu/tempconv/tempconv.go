@@ -12,6 +12,7 @@ const (
 	BoilingC      Celsius = 100
 )
 
+// 타입의 메소드라고 부른다.
 func (c Celsius) String() string {
 	return fmt.Sprintf("%g°C", c)
 }

@@ -12,7 +12,7 @@ var sep = flag.String("s", " ", "separator")
 
 func main() {
 	flag.Parse()
-	fmt.Print(strings.Join(flag.Args(), *sep))
+	fmt.Print(strings.Join(flag.Args(), *sep)) // 포인트 문법을 써야 값에 접근이 가능하다.
 	if !*n {
 		fmt.Println()
 	}

@@ -12,6 +12,7 @@ var mu sync.Mutex
 var count int
 
 func main() {
+	// 요청마다 고루틴 하나씩 풀어줌
 	http.HandleFunc("/", handler)
 	http.HandleFunc("/count", counter)
 	log.Fatal(http.ListenAndServe("localhost:8001", nil))
