@@ -4,6 +4,11 @@ import "fmt"
 
 type ByteCounter int
 
+func (c *ByteCounter) Write(p []byte) (int, error) {
+	*c += ByteCounter(len(p))
+	return len(p), nil
+}
+
 func main() {
 	var c ByteCounter
 	c.Write([]byte("hello"))
@@ -24,9 +29,4 @@ func main() {
 	fmt.Println(c)
 }
 
-func (c *ByteCounter) Write(p []byte) (int, error) {
-	// ByteCounter가 int 타입임에도
-	// int와 ByteCounter의 타입은 다르다.
-	*c += ByteCounter(len(p))
-	return len(p), nil
-}
+
